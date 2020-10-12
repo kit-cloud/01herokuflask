@@ -1,9 +1,15 @@
 from flask import Flask
-app = Flask(__name__)
+from flask import request
+from flask import render_template
+from flask import send_from_directory
+app = Flask(__name__,
+            static_url_path='', 
+            static_folder='site/static',
+            template_folder='site')
 
 @app.route('/')
-def hello_world():
-    return 'Hello FIIT-17!'
+def homepage():
+    return render_template("main.html")
 
-if __name__ == '__main__':
+if __name__== '__name__':
     app.run()
